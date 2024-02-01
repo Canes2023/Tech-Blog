@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= post.title %></title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1><%= post.title %></h1>
+    <p><%= post.content %></p>
+    <!-- Display more details like date, author, etc. as needed -->
+
+    <!-- Display comments and allow users to leave comments -->
+    <div id="comments-section">
+      <% post.comments.forEach(comment => { %>
+        <div class="comment">
+          <p><%= comment.content %></p>
+          <!-- Add more details like date, author, etc. as needed -->
+        </div>
+      <% }) %>
+    </div>
+
+    <!-- Add a form for leaving comments -->
+    <form id="commentForm" action="/comment" method="post">
+      <label for="commentContent">Leave a Comment:</label>
+      <textarea id="commentContent" name="commentContent" required></textarea>
+      <button type="submit">Submit Comment</button>
+    </form>
+
+  </div>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

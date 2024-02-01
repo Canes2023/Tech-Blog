@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    h1 {
+      color: #007bff;
+    }
+
+    nav {
+      margin-bottom: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+
+    .blog-posts {
+      margin-top: 20px;
+    }
+
+    article {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #f5f5f5;
+      border-radius: 4px;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to My Blog</h1>
+
+    <!-- Navigation Links -->
+    <nav>
+      <ul>
+        <li><a href="./views/homepage.html">Home</a></li>
+        <li><a href="./views/dashboard.html">Dashboard</a></li>
+      </ul>
+    </nav>
+
+    <!-- Check if user is logged in -->
+    <script>
+      // Replace these variables with actual values or fetch from server
+      const userLoggedIn = true;
+      const blogPosts = [
+        { id: 1, title: 'Sample Post 1', content: 'Content for post 1', author: 'Author 1', date: '2022-01-27' },
+        { id: 2, title: 'Sample Post 2', content: 'Content for post 2', author: 'Author 2', date: '2022-01-28' },
+      ];
+
+      if (userLoggedIn) {
+        // Display existing blog posts
+        document.write('<section class="blog-posts">');
+        document.write('<h2>Existing Blog Posts</h2>');
+        // Iterate over existing blog posts and display them
+        blogPosts.forEach(post => {
+          document.write('<article>');
+          document.write(`<h3>${post.title}</h3>`);
+          document.write(`<p>${post.content}</p>`);
+          document.write(`<p>Posted by ${post.author} on ${post.date}</p>`);
+          // Add link to view full post and comments
+          document.write(`<a href="/views/post/${post.id}" class="button">View Post</a>`);
+          document.write('</article>');
+        });
+        document.write('</section>');
+
+        // Option to log out
+        document.write('<a href="/views/logout" class="button">Log Out</a>');
+      } else {
+        // Option to log in
+        document.write('<a href="/views/login" class="button">Log In</a>');
+      }
+    </script>
+
+    <!-- Add more content and styling as needed -->
+  </div>
+</body>
+</html>

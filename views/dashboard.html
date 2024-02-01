@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>User Dashboard</h1>
+
+    <% blogPosts.forEach(post => { %>
+      <div class="user-blog-post">
+        <h2><%= post.title %></h2>
+        <p><%= post.content %></p>
+        <a href="/dashboard/edit/<%= post.id %>">Edit</a>
+        <a href="/dashboard/delete/<%= post.id %>">Delete</a>
+      </div>
+    <% }) %>
+
+    <a href="/dashboard/new">Add New Blog Post</a>
+    <a href="/logout">Logout</a>
+  </div>
+</body>
+</html>
